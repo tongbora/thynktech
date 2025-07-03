@@ -1,4 +1,3 @@
-
 export type ProductType = {
   id: number;
   title: string;
@@ -12,7 +11,9 @@ export type ProductType = {
   discount: number;
 };
 
-export type TParams =Promise<{ slug: string}>;
+export type Props = {
+  params: Promise<{ id: string }>;
+};
 
 export type Params = {
   params: {

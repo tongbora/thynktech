@@ -1,14 +1,12 @@
 import { fetchDataById } from "@/services/FetchData";
-import { Params } from "@/types/productType";
+import { Params, Props } from "@/types/productType";
+import { Metadata, } from "next";
 import Image from "next/image";
 
-export async function generateMetada({
-  params,
-}: {
-  params: Promise<Params["params"]>;
-}) {
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
   const paramId = await params;
-  console.log("Param ID: ", paramId);
   const product = await fetchDataById(paramId.id);
   return {
     title: `${product.title} | Thynk Tech`,
