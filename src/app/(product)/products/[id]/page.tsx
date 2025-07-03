@@ -2,10 +2,39 @@ import { fetchDataById } from "@/services/FetchData";
 import { Params } from "@/types/productType";
 import Image from "next/image";
 
-export default async function ProductDetail({ params }: {params: Promise<Params["params"]>}) {
+export async function generateMetada({
+  params,
+}: {
+  params: Promise<Params["params"]>;
+}) {
+  const paramId = await params;
+  console.log("Param ID: ", paramId);
+  const product = await fetchDataById(paramId.id);
+  return {
+    title: `${product.title} | Thynk Tech`,
+    description: product.description,
+    openGraph: {
+      title: product.title,
+      description: product.description,
+      images: [
+        {
+          url: product.image, // must be absolute or under /public
+          width: 1200,
+          height: 630,
+          alt: product.title,
+        },
+      ],
+    },
+  };
+}
+
+export default async function ProductDetail({
+  params,
+}: {
+  params: Promise<Params["params"]>;
+}) {
   const paramsData = await params;
   const product = await fetchDataById(paramsData.id);
-  console.log("Product Details:", product);
   return (
     <div className="p-16 h-screen">
       <div className="bg-gray-200 dark:bg-neutral-900 py-8 rounded-xl">
