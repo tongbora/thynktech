@@ -13,7 +13,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-export const metadata : Metadata = {
+export const metadata: Metadata = {
   title: "Thynk Tech | Smart eCommerce Solutions",
   description:
     "Thynk Tech is a modern eCommerce platform built with Next.js and TypeScript. Discover smart shopping, fast performance, and beautiful design.",
@@ -60,9 +60,7 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en" className={roboto.className} suppressHydrationWarning>
-      <body
-      // className={`${roboto.variable} antialiased mx-auto max-w-screen-7xl`}
-      >
+      <body className="bg-white dark:bg-black">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

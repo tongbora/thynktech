@@ -2,7 +2,12 @@
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { fetchData } from "@/services/FetchData";
 import ProductCard from "@/components/productCard/ProductCard";
-export default function ProductCollection() {
+export default async function ProductCollection() {
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Hello")
+    }, 2000)
+  })
   const products = fetchData();
   return (
     <section>

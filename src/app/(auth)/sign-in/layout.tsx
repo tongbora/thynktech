@@ -1,7 +1,7 @@
-import "../globals.css"; // Ensure global styles are imported
+import "../../globals.css"; // Ensure global styles are imported
 import { ThemeProvider } from "@/components/theme/theme-provider";
 export const metadata = {
-  title: "Tech World - Log",
+  title: "Sign In",
   description: "Log in to your account",
 };
 
