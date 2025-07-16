@@ -26,7 +26,7 @@ export default function Navbar() {
   };
 
   const handleRegisterClick = () => {
-    router.push("/products");
+    router.push("/register");
   };
 
   const toggleMobileMenu = () => {

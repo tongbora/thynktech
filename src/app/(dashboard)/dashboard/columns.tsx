@@ -36,6 +36,7 @@ export const columns: ColumnDef<ProductType>[] = [
         {row.getValue("title")}
       </div>
     ),
+    size: 200,
     header: ({ column }) => {
       return (
         <Button
@@ -55,5 +56,26 @@ export const columns: ColumnDef<ProductType>[] = [
   {
     accessorKey: "price",
     header: "Price",
+    cell: ({ row }) => (
+      <div className="w-24">
+        <span className="font-medium">
+          ${parseFloat(row.getValue("price")).toFixed(2)}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: "image",
+    header: "Image",
+    cell: ({ row }) => (
+      <div className="w-20 flex justify-center">
+        <img
+          src={row.original.image}
+          alt={row.original.title}
+          className="w-16 h-16 object-cover rounded-md"
+        />
+      </div>
+    ),
+    size: 80,
   },
 ];
